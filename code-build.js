@@ -163,7 +163,7 @@ function githubInputs() {
   const sourceVersion =
     process.env[`GITHUB_EVENT_NAME`] === "pull_request"
       ? (((payload || {}).pull_request || {}).head || {}).sha
-      : process.env[`GITHUB_SHA`];
+      : process.env[`COMMIT_ID`];
 
   assert(sourceVersion, "No source version could be evaluated.");
   const buildspecOverride =
